@@ -1,0 +1,39 @@
+--- models/flownet2_pytorch/networks/channelnorm_package/setup.py	2019-02-18 14:54:51.042288412 +0100
++++ ../vid2vid/patches/vid2vid/models/flownet2_pytorch/networks/channelnorm_package/setup.py	2018-10-21 17:08:43.000000000 +0200
+@@ -6,8 +6,10 @@
+ from torch.utils.cpp_extension import BuildExtension, CUDAExtension
+ 
+ cxx_args = ['-std=c++11']
++CC = os.environ["CC"]
+ 
+ nvcc_args = [
++    '-ccbin', CC,
+     '-gencode', 'arch=compute_52,code=sm_52',
+     '-gencode', 'arch=compute_60,code=sm_60',
+     '-gencode', 'arch=compute_61,code=sm_61',
+--- models/flownet2_pytorch/networks/correlation_package/setup.py	2019-02-18 14:54:51.026288558 +0100
++++ ../vid2vid/patches/vid2vid/models/flownet2_pytorch/networks/correlation_package/setup.py	2018-10-21 17:08:43.000000000 +0200
+@@ -6,8 +6,10 @@
+ from torch.utils.cpp_extension import BuildExtension, CUDAExtension
+ 
+ cxx_args = ['-std=c++11']
++CC = os.environ["CC"]
+ 
+ nvcc_args = [
++    '-ccbin', CC,
+     '-gencode', 'arch=compute_50,code=sm_50',
+     '-gencode', 'arch=compute_52,code=sm_52',
+     '-gencode', 'arch=compute_60,code=sm_60',
+--- models/flownet2_pytorch/networks/resample2d_package/setup.py	2019-02-18 14:54:51.038288448 +0100
++++ ../vid2vid/patches/vid2vid/models/flownet2_pytorch/networks/resample2d_package/setup.py	2018-10-21 17:08:43.000000000 +0200
+@@ -6,8 +6,10 @@
+ from torch.utils.cpp_extension import BuildExtension, CUDAExtension
+ 
+ cxx_args = ['-std=c++11']
++CC = os.environ["CC"]
+ 
+ nvcc_args = [
++    '-ccbin', CC,
+     '-gencode', 'arch=compute_50,code=sm_50',
+     '-gencode', 'arch=compute_52,code=sm_52',
+     '-gencode', 'arch=compute_60,code=sm_60',
